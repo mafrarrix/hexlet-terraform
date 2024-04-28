@@ -15,5 +15,5 @@ provider "digitalocean" {
 }
 
 data "digitalocean_ssh_key" "terraform" {
-  name = "the_name_of_your_public_SSH_key"
+  name = "hexlet-vm"
 }
