@@ -18,14 +18,15 @@ data "digitalocean_ssh_key" "terraform" {
   name = "hexlet-vm"
 }
 
-resource "digitalocean_droplet" "default"{
+resource "digitalocean_droplet" "www-1"{
   image = "ubuntu-20-04-x64"
   name = "www-1"
   region = "fra1"
   size = "s-2vcpu-2gb"
   ssh_keys = [
-      data.digitalocean_ssh_key.terraform.name
+      data.digitalocean_ssh_key.terraform.id
     ]
+
 
   connection {
     host = self.ipv4_address
