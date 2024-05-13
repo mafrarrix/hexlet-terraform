@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     digitalocean = {
-      source = "digitalocean/digitalocean"
+      source  = "digitalocean/digitalocean"
       version = "~> 2.0"
     }
   }
@@ -18,24 +18,24 @@ data "digitalocean_ssh_key" "terraform" {
   name = "hexlet-vm"
 }
 
-resource "digitalocean_droplet" "www-1"{
-  image = "ubuntu-20-04-x64"
-  name = "www-1"
+resource "digitalocean_droplet" "www-1" {
+  image  = "ubuntu-20-04-x64"
+  name   = "www-1"
   region = "fra1"
-  size = "s-2vcpu-2gb"
+  size   = "s-2vcpu-2gb"
   ssh_keys = [
-      data.digitalocean_ssh_key.terraform.id
-    ]
+    data.digitalocean_ssh_key.terraform.id
+  ]
 
 
   connection {
-    host = self.ipv4_address
-    user = "root"
-    type = "ssh"
+    host        = self.ipv4_address
+    user        = "root"
+    type        = "ssh"
     private_key = file(var.pvt_key)
-    timeout = "2m"
+    timeout     = "2m"
   }
-  
+
   provisioner "remote-exec" {
     inline = [
       "export PATH=$PATH:/usr/bin",
