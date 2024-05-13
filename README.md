@@ -1,1 +1,1 @@
-# hexlet-terraform
+# Installing Njinx with Terraform
