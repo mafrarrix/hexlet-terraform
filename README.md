@@ -26,7 +26,7 @@ cd hexlet-terraform
 4. Run the `terraform init` command to initialize Terraform:
 
 ```bash
-terraform init`
+terraform init
 ```
 
 5. Run the `terraform apply` command to create a Droplet with Nginx installed on DigitalOcean:
